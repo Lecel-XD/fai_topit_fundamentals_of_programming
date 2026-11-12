@@ -6,7 +6,7 @@ import tracemalloc
 print(f'empty list: {sys.getsizeof([])}')
 print(f'list (len=10): {sys.getsizeof(list(range(1, 11)))}')
 print(f'tuple: {sys.getsizeof(tuple(range(1, 11)))}')
-print(f'str (len=10): {sys.getsizeof('abcdefghij')}')
+print(f'str (len=10): {sys.getsizeof("abcdefghij")}')
 print(f'int: {sys.getsizeof(999)}')
 print(f'None: {sys.getsizeof(None)}')
 
