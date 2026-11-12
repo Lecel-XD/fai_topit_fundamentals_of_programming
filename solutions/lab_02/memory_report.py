@@ -47,7 +47,7 @@ def measure_part3():
     return results
 
 
-def format(header, data1=None, data2=None, data3=None):
+def format_output(header, data1=None, data2=None, data3=None):
     print('----------------------------------')
     print(header)
     print('----------------------------------')
@@ -65,7 +65,6 @@ def format(header, data1=None, data2=None, data3=None):
                 print(f'size: {size}, len: {length}')
         else:
             print(data2)
-            print('NOOO')
 
     if data3 is not None:
         if isinstance(data3, list):
@@ -73,16 +72,17 @@ def format(header, data1=None, data2=None, data3=None):
                 print(f'{name}: current={current:.2f} KB, peak={peak:.2f} KB')
         else:
             print(data3)
-            print('NOOO')
 
 def main():
     data1 = measure_part1()
     data2 = measure_part2()
     data3 = measure_part3()
-    format('Часть 1. Размер отдельных объектов', data1=data1)
-    format('Часть 2. Рост списка', data1=data2)
-    format('Часть 3. Измерение через tracemalloc', data1=data3)
+    format_output('Часть 1.', data1=data1)
+    format_output('Часть 2.', data2=data2)
+    format_output('Часть 3.', data3=data3)
 
 
 if __name__ == '__main__':
     main()
+
+
