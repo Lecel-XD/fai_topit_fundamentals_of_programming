@@ -32,17 +32,20 @@ def get_mark(score, work_type, skipped):
 
 
 def main():
+    '''Для каждого студента вычисляет результат работы и её тип'''
     students = {
         'Имя_1': (0, 'exam', 4),
         'Имя_2': (59, 'project', 1),
         'Имя_3': (-20, 'practice', 0),
         'Имя_4': (80, 'project', 3),
         'Имя_5': (75, 'practice', 4),
-        'Имя_6': (89, 'exam', -3),
+        'Имя_6': (89, 'exam', 1),
         'Имя_7': (90, 'practice', 2),
         'Имя_8': (100, 'exam', 5),
-        'Имя_9': (74, 'exam', -3),
-        'Имя_10': (60, 'something', 3)
+        'Имя_9': (74, 'exam', 0),
+        'Имя_10': (60, 'something', 3),
+        'Имя_11': (74, 'exam', -3),
+        'Имя_12': (89, 'something', -4)
     }
     results = {}
     for name, info in students.items():
