@@ -6,7 +6,7 @@ counts = {}
 
 
 def get_info(command, *args):
-    '''Возвращает информацию по команде'''
+    """Возвращает информацию по команде"""
     match command:
         case 'student':
             if len(args) != 1:
@@ -40,7 +40,7 @@ def get_info(command, *args):
 
 
 def add_submission(person):
-    '''Добавляет данные о пользователе'''
+    """Добавляет данные о пользователе"""
     name, lab, score = person
     students.add(name)
     labs.add(lab)
@@ -52,7 +52,7 @@ def add_submission(person):
 
 
 def print_info():
-    '''Печатает общую аналитику'''
+    """Печатает общую аналитику"""
     print(f'Студенты: {students}')
     print(f'Сданные лабы: {labs}')
     print(f'Список попыток студентов: {attempts}')

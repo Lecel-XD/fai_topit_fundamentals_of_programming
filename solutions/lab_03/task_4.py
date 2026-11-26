@@ -86,6 +86,47 @@ def run_tests():
     print('Все проверки прошли')
 
 
+# Практическое расширение
+def apply_to_results(operation, values):
+    """Применяет operation к каждому элементу values, возвращает новый список."""
+    return [operation(v) for v in values]
+
+
+def make_threshold_checker(threshold):
+    """Возвращает функцию, проверяющую результат на превышение порога."""
+    def check(value):
+        return value >= threshold
+    return check
+
+
+def last_part():
+    def double(x):
+        return x * 2
+
+    values = [3, 5, 7]
+
+    print('Именованная x * 2:', apply_to_results(double, values))
+    print('Lambda x + 1:', apply_to_results(lambda x: x + 1, values))
+    assert values == [3, 5, 7], 'исходный список не должен меняться'
+
+    is_greater_50 = make_threshold_checker(50)
+    is_greater_70 = make_threshold_checker(70)
+
+    print('is_greater_50(75):', is_greater_50(75))
+    print('is_greater_50(40):', is_greater_50(40))
+    print('is_greater_70(76):', is_greater_70(76))
+    print('is_greater_70(65):', is_greater_70(65))
+
+    print('Замыкание is_greater_50:', is_greater_50.__closure__[0].cell_contents)
+    print('Замыкание is_greater_70:', is_greater_70.__closure__[0].cell_contents)
+
+    scores = [55, 72, 88, 95]
+    print('pass_check по scores:', apply_to_results(is_greater_50, scores))
+    print('excellent_check по scores:', apply_to_results(is_greater_70, scores))
+
+
+
+
 
 def main():
     print(arithmetic_mean([4, 5, 6]))
@@ -108,3 +149,33 @@ def main():
 if __name__ == '__main__':
     run_tests()
     main()
+    last_part()
+
+# Исследование LEGB
+course = "Python"
+
+def outer():
+    year = 1
+    def inner():
+        nonlocal year
+        year += 1
+        return year
+    inner()
+    inner()
+    return year
+
+print(outer())
+print(course)
+
+
+# Ошибка изменяемого значения по умолчанию
+def add_result(value, results=None):
+    if results is None:
+        results = []
+    results.append(value)
+    return results
+
+print(add_result(1))
+print(add_result(2))
+
+

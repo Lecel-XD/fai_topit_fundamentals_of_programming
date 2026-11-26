@@ -1,4 +1,5 @@
 def linear_search(el, lst):
+    """Линейный поиск элемента в списке"""
     cnt = 0
     for idx in range(len(lst)):
         cnt += 1
@@ -8,6 +9,7 @@ def linear_search(el, lst):
 
 
 def is_prime(num):
+    """Проверка, является ли число простым"""
     if num < 2: return False
     for denominator in range(2, int(num ** 0.5) + 1):
         if num % denominator == 0:
@@ -16,6 +18,7 @@ def is_prime(num):
 
 
 def binary_search(arr, low, high, V):
+    """Бинарный поиск в отсортированном списке"""
     cnt = 0
     while high >= low:
         cnt += 1
@@ -30,6 +33,7 @@ def binary_search(arr, low, high, V):
 
 
 def selection_sort(arr):
+    """Сортировка выбором"""
     for i in range(len(arr) - 1):
         min_idx = i
         for j in range(i + 1, len(arr)):
